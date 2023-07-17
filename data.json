@@ -1,0 +1,29 @@
+{
+  "id":"Installation672023",
+  "idShort":"InstallationInformation",
+  "kind":"Instance",
+  "modelType":"Submodel",
+  "semanticId":{
+    "keys":[
+      {
+        "type":"GlobalReference",
+        "value":"www.example.com/ids/sm/InstallationInformation"
+      }
+    ],
+    "type":"ExternalReference"
+  },
+  "submodelElements":[
+    {
+      "idShort":"InstallLocation",
+      "modelType":"Property",
+      "value":"Kaiserslautern",
+      "valueType":"xs:string"
+    },
+    {
+      "idShort":"Price",
+      "modelType":"Property",
+      "value":"200",
+      "valueType":"xs:double"
+    }
+  ]
+}
