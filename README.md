@@ -39,7 +39,7 @@ Sample SHACL with SPARQL-Target
 
 ex:CityShape a sh:NodeShape;
     a sh:NodeShape ;
-	sh:message "Only 3 Cities is Valid: Kaiserslauter, Berlin, Pirmasens" ;
+	sh:message "Only 3 Cities is Valid: Kaiserslautern, Berlin, Pirmasens" ;
     sh:target [
         a sh:SPARQLTarget ;
         sh:select """
