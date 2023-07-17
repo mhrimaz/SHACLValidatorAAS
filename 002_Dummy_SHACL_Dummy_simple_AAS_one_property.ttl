@@ -1,8 +1,4 @@
-@prefix dash: <http://datashapes.org/dash#> .
 @prefix aas: <https://admin-shell.io/aas/3/0/> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix schema: <http://schema.org/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xs: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ex: <http://www.dfki.de/> .
@@ -10,7 +6,7 @@
 
 ex:CityShape a sh:NodeShape;
     a sh:NodeShape ;
-	sh:message "Only 3 Cities is Valid: Kaiserslautern, Berlin, Pirmasens" ;
+	
     sh:target [
         a sh:SPARQLTarget ;
         sh:select """
@@ -27,5 +23,6 @@ ex:CityShape a sh:NodeShape;
     sh:property [
 		sh:path <https://admin-shell.io/aas/3/0/Property/value> ;
 		sh:in ("Kaiserslautern" "Berlin" "Pirmasens");
+		sh:message "Only 3 Cities is Valid: Kaiserslautern, Berlin, Pirmasens" ;
     ] 
 .
