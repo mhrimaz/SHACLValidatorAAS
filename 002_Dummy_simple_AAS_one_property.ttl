@@ -1,0 +1,37 @@
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix aas: <https://admin-shell.io/aas/3/0/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xs: <http://www.w3.org/2001/XMLSchema#> .
+
+
+
+
+#########################################################################
+
+<Installation672023> rdf:type aas:Submodel ;
+  <https://admin-shell.io/aas/3/0/Identifiable/id> "Installation672023"^^xs:string ;
+  <https://admin-shell.io/aas/3/0/HasKind/kind> <https://admin-shell.io/aas/3/0/ModellingKind/Instance> ;
+    <https://admin-shell.io/aas/3/0/HasSemantics/semanticId> [
+        rdf:type aas:Reference ;
+        <https://admin-shell.io/aas/3/0/Reference/type> <https://admin-shell.io/aas/3/0/ReferenceTypes/ExternalReference> ;
+        <https://admin-shell.io/aas/3/0/Reference/keys> [
+            rdf:type aas:Key ;
+            <https://admin-shell.io/aas/3/0/Key/type> <https://admin-shell.io/aas/3/0/KeyTypes/GlobalReference> ;
+            <https://admin-shell.io/aas/3/0/Key/value> "www.example.com/ids/sm/InstallationInformation"^^xs:string ;
+        ] ;
+    ] ;
+    <https://admin-shell.io/aas/3/0/Submodel/submodelElements> [
+        rdf:type aas:Property ;
+        <https://admin-shell.io/aas/3/0/Referable/idShort> "InstallLocation"^^xs:string ;
+        <https://admin-shell.io/aas/3/0/Property/valueType> <https://admin-shell.io/aas/3/0/DataTypeDefXsd/String> ;
+        <https://admin-shell.io/aas/3/0/Property/value> "Paris"^^xs:string ;
+    ] ;
+    <https://admin-shell.io/aas/3/0/Submodel/submodelElements> [
+        rdf:type aas:Property ;
+        <https://admin-shell.io/aas/3/0/Referable/idShort> "Price"^^xs:string ;
+        <https://admin-shell.io/aas/3/0/Property/valueType> <https://admin-shell.io/aas/3/0/DataTypeDefXsd/Double> ;
+        <https://admin-shell.io/aas/3/0/Property/value> "200"^^xs:double ;
+    ] .
