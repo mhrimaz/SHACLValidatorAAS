@@ -54,7 +54,8 @@ With the following command you should get the output in the image:
 
 `java -jar rmlmapper-6.2.1-r368-all.jar -m input_submodel_mapping.txt`
 
-![image](https://github.com/mhrimaz/SHACLValidatorAAS/assets/17963017/ec492a8a-9002-4a88-bf90-e42d2922d03e)
+![image](https://github.com/mhrimaz/SHACLValidatorAAS/assets/17963017/eec7968f-a56f-4828-88d8-0ca81b6d3a62)
+
 
 ## YARRML
 
