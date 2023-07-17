@@ -15,6 +15,60 @@ Will be added.
 - Provided YARRML won't work with [Matey](https://rml.io/yarrrml/matey/). `xs` namepsace in `xs:double` automatically replaced by the engine. As a shortcut you can remove `xs` in both JSON and YARRML file as a shortcut.
 - In examples provided by the aas-spec repository, blank node used for submodelElements. This makes targeting specific elements hard. Furthermore, the datatype of literals are always string.
 
+### SHACL Usage
+
+For SHACL validation we used Apache Jena [apache-jena-4.9.0](https://dlcdn.apache.org/jena/binaries/apache-jena-4.9.0.zip). `JAVA_HOME` and `JENA_HOME` should be in your environment variables.
+
+Use the following command to run validation:
+
+`shacl.bat validate --shapes 002_Dummy_SHACL_Dummy_simple_AAS_one_property.ttl --data 002_Dummy_simple_AAS_one_property.ttl` 
+
+
+Sample SHACL with SPARQL-Target
+
+```turtle
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix aas: <https://admin-shell.io/aas/3/0/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xs: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://www.dfki.de/> .
+
+
+ex:CityShape a sh:NodeShape;
+    a sh:NodeShape ;
+	sh:message "Only 3 Cities is Valid: Kaiserslauter, Berlin, Pirmasens" ;
+    sh:target [
+        a sh:SPARQLTarget ;
+        sh:select """
+            select ?s where {
+           ?s <https://admin-shell.io/aas/3/0/Referable/idShort> ?o;
+              <https://admin-shell.io/aas/3/0/Referable/idShort> ?o;
+           FILTER(?o = "InstallLocation")
+            }
+            """ ;
+    ] ;
+    sh:property [
+		sh:path <https://admin-shell.io/aas/3/0/Property/value> ;
+		sh:in ("Kaiserslautern" "Berlin" "Pirmasens");
+    ] 
+.
+```
+
+
+When the content is Valid
+
+![image](https://github.com/mhrimaz/SHACLValidatorAAS/assets/17963017/9ad08b6f-356a-4faa-9ba2-057515c0feb4)
+
+When you change the `InstallLocation` to an invalid value like `Paris` you will get the following errror:
+
+![image](https://github.com/mhrimaz/SHACLValidatorAAS/assets/17963017/e778fe98-5d44-4eb6-b4bd-47dc764f0dac)
+
+
+
+
 ### AAS to RDF Usage
 Example input:
 ```json
