@@ -45,7 +45,6 @@ ex:CityShape a sh:NodeShape;
         sh:select """
             select ?s where {
            ?s <https://admin-shell.io/aas/3/0/Referable/idShort> ?o;
-              <https://admin-shell.io/aas/3/0/Referable/idShort> ?o;
            FILTER(?o = "InstallLocation")
             }
             """ ;
