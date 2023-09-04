@@ -67,6 +67,42 @@ When you change the `InstallLocation` to an invalid value like `Paris` you will 
 ![image](https://github.com/mhrimaz/SHACLValidatorAAS/assets/17963017/e778fe98-5d44-4eb6-b4bd-47dc764f0dac)
 
 
+Another example:
+The constraint: `The price for Berlin should be more than 200`
+
+`shacl.bat validate --shapes 002_Dummy_SHACL_sparql.ttl --data 002_Dummy_simple_AAS_one_property.ttl`
+
+```turtle
+@prefix aas: <https://admin-shell.io/aas/3/0/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xs: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://www.dfki.de/> .
+
+
+ex:ExpensiveCityShape a sh:NodeShape ;
+    sh:targetClass aas:Submodel;
+    
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "The price for Berlin cannot be less than 200." ;
+		sh:select """
+		SELECT ?this
+		WHERE {
+		  ?s1 <https://admin-shell.io/aas/3/0/Property/value> ?value1; 
+			 <https://admin-shell.io/aas/3/0/Referable/idShort> ?o1;
+		  Optional{
+			?s2 <https://admin-shell.io/aas/3/0/Property/value> ?value2; 
+				<https://admin-shell.io/aas/3/0/Referable/idShort> ?o2;
+		  }
+		  Filter(?o1 = "InstallLocation" &&  ?value1 = "Berlin" && ?o2 = "Price" && ?value2 < 200)  
+		}
+		"""
+	] 
+    
+.
+```
+
+![image](https://github.com/mhrimaz/SHACLValidatorAAS/assets/17963017/125e2b35-fb33-4a51-b8ed-de29e7925fc6)
 
 
 ### AAS to RDF Usage
