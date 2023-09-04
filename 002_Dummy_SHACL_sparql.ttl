@@ -5,19 +5,7 @@
 
 
 ex:ExpensiveCityShape a sh:NodeShape ;
-    sh:target [
-        a sh:SPARQLTarget ;
-        sh:select """
-            select ?s where {
-  
-			  ?s <https://admin-shell.io/aas/3/0/Referable/idShort> ?o;
-				 <https://admin-shell.io/aas/3/0/Referable/idShort> ?o;
-			  
-			  FILTER(?o = "InstallLocation")
-
-			}
-            """ ;
-    ] ;
+    sh:targetClass aas:Submodel;
     
 	sh:sparql [
 		a sh:SPARQLConstraint ;
@@ -31,7 +19,7 @@ ex:ExpensiveCityShape a sh:NodeShape ;
 			?s2 <https://admin-shell.io/aas/3/0/Property/value> ?value2; 
 				<https://admin-shell.io/aas/3/0/Referable/idShort> ?o2;
 		  }
-		  Filter(?o1 = "InstallLocation" &&  ?value1 = "Berlin" && ?o2 = "Price" && ?value2 > 100)  
+		  Filter(?o1 = "InstallLocation" &&  ?value1 = "Berlin" && ?o2 = "Price" && ?value2 < 200)  
 		}
 		"""
 	] 
