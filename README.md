@@ -1,5 +1,7 @@
 # SHACLValidatorAAS
 
+[Presentation slides](https://github.com/mhrimaz/SHACLValidatorAAS/blob/main/SF_ETFA2023_SHACL_Paper.pdf)
+
 Proof of concept for AAS to RDF with RML and use SHACL shape to validate AAS content.
 
 Since we faced so many issues with RML and there are many limitations, RML can't really be used for AAS to RDF conversion. We suggest to use [aas4j](https://github.com/eclipse-aas4j/aas4j) library for RDF conversion.
