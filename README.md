@@ -9,7 +9,15 @@ Since we faced so many issues with RML and there are many limitations, RML can't
 If you are using our idea, we would appreciate to site our paper:
 
 ```bibtex
-Will be added.
+@INPROCEEDINGS{10275629,
+  author={Rimaz, Mohammad Hossein and Plociennik, Christiane and Kunz, Leonhard and Ruskowski, Martin},
+  booktitle={2023 IEEE 28th International Conference on Emerging Technologies and Factory Automation (ETFA)}, 
+  title={Am I in Good Shape? Flexible Way to Validate Asset Administration Shell Data Entry via Shapes Constraint Language}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={1-6},
+  doi={10.1109/ETFA54631.2023.10275629}}
 ```
 
 ## Limmitations
